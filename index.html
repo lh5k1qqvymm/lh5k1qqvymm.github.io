@@ -1,0 +1,1396 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张津渝 - 官方视频门户 | 原创纪实影像与城市观察品牌</title>
+<meta name="description" content="张津渝官方网站，聚焦城市纪实与人物访谈的原创视频品牌，记录真实故事，呈现多元内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23172026'/%3E%3Cpath d='M18 20h20a6 6 0 0 1 6 6v18H26a8 8 0 0 1-8-8z' fill='%23f0b429'/%3E%3Cpath d='M27 30l12 7-12 7z' fill='%23172026'/%3E%3C/svg%3E">
+<style>
+:root{
+  --zj-ink:#172026;
+  --zj-ink-soft:#3d4b55;
+  --zj-muted:#6d7d88;
+  --zj-line:#dfe5e8;
+  --zj-paper:#f4f6f5;
+  --zj-white:#ffffff;
+  --zj-accent:#f0b429;
+  --zj-accent-deep:#c98a12;
+  --zj-steel:#243a46;
+  --zj-teal:#1f6f6b;
+  --zj-red:#d1553f;
+  --zj-radius:14px;
+  --zj-shadow:0 10px 30px rgba(23,32,38,.08);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:120px;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color:var(--zj-ink);
+  background:var(--zj-paper);
+  line-height:1.75;
+  font-size:16px;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+.zj-wrap{max-width:1180px;margin:0 auto;padding:0 22px;}
+.zj-sticky-head{position:sticky;top:0;z-index:50;}
+
+/* 公告条 */
+.zj-announce{
+  background:var(--zj-ink);
+  color:#e8eef1;
+  font-size:13.5px;
+  letter-spacing:.2px;
+}
+.zj-announce-inner{
+  max-width:1180px;margin:0 auto;padding:9px 22px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.zj-announce-tag{
+  background:var(--zj-accent);color:var(--zj-ink);
+  font-weight:700;padding:1px 9px;border-radius:5px;font-size:12px;flex:none;
+}
+.zj-announce-text{flex:1;min-width:200px;}
+.zj-announce-text b{color:var(--zj-accent);font-weight:600;}
+.zj-announce-link{
+  color:#cfe0d8;border-bottom:1px dashed #7d8f97;flex:none;
+}
+.zj-announce-link:hover{color:#fff;}
+
+/* 页头 */
+.zj-header{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--zj-line);
+  box-shadow:0 2px 12px rgba(23,32,38,.05);
+}
+.zj-header-inner{
+  max-width:1180px;margin:0 auto;padding:12px 22px;
+  display:flex;align-items:center;gap:20px;
+}
+.zj-brand{display:flex;align-items:center;gap:11px;flex:none;}
+.zj-brand-mark{
+  width:40px;height:40px;border-radius:11px;flex:none;
+  background:linear-gradient(140deg,var(--zj-ink) 0%,var(--zj-steel) 100%);
+  display:grid;place-items:center;
+}
+.zj-brand-mark svg{width:22px;height:22px;}
+.zj-brand-name{font-weight:800;font-size:19px;letter-spacing:.5px;}
+.zj-brand-sub{font-size:11px;color:var(--zj-muted);letter-spacing:2px;margin-top:-3px;}
+.zj-nav{display:flex;gap:4px;margin-left:8px;flex-wrap:wrap;}
+.zj-nav a{
+  padding:7px 12px;border-radius:8px;font-size:14.5px;color:var(--zj-ink-soft);
+  transition:.2s;
+}
+.zj-nav a:hover{background:#eef1f2;color:var(--zj-ink);}
+.zj-head-tools{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.zj-search{position:relative;}
+.zj-search input{
+  width:190px;padding:8px 34px 8px 12px;border-radius:9px;
+  border:1px solid var(--zj-line);background:#f7f9f9;
+  font-size:14px;outline:none;transition:.25s;color:var(--zj-ink);
+}
+.zj-search input:focus{width:230px;border-color:var(--zj-accent-deep);background:#fff;}
+.zj-search button{
+  position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  border:0;background:transparent;color:var(--zj-muted);font-size:15px;padding:4px 6px;
+}
+.zj-search-hint{
+  display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:#fff;border:1px solid var(--zj-line);border-radius:10px;
+  box-shadow:var(--zj-shadow);padding:8px;font-size:13px;color:var(--zj-muted);z-index:60;
+}
+.zj-search-hint.show{display:block;}
+.zj-search-hint strong{color:var(--zj-ink);}
+.zj-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border-radius:9px;padding:9px 18px;font-size:14.5px;font-weight:600;
+  border:1px solid transparent;transition:.22s;white-space:nowrap;
+}
+.zj-btn-primary{background:var(--zj-ink);color:#fff;}
+.zj-btn-primary:hover{background:var(--zj-steel);}
+.zj-btn-accent{background:var(--zj-accent);color:var(--zj-ink);}
+.zj-btn-accent:hover{background:#e0a61f;}
+.zj-btn-ghost{background:#fff;border-color:var(--zj-line);color:var(--zj-ink-soft);}
+.zj-btn-ghost:hover{border-color:var(--zj-ink-soft);color:var(--zj-ink);}
+.zj-menu-toggle{
+  display:none;background:#fff;border:1px solid var(--zj-line);
+  border-radius:9px;width:42px;height:40px;flex:none;
+}
+.zj-menu-toggle span{display:block;width:18px;height:2px;background:var(--zj-ink);margin:3px auto;transition:.2s;}
+
+/* 首屏 */
+.zj-hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(155deg,#1b272e 0%,#243a46 55%,#1f4f4b 100%);
+  color:#f3f7f8;
+}
+.zj-hero-grid{
+  max-width:1180px;margin:0 auto;padding:52px 22px 58px;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:44px;align-items:center;
+}
+.zj-hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(240,180,41,.14);border:1px solid rgba(240,180,41,.45);
+  color:#f6c95c;font-size:12.5px;letter-spacing:1.5px;
+  padding:5px 13px;border-radius:999px;margin-bottom:18px;
+}
+.zj-hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--zj-accent);}
+h1.zj-h1{
+  font-size:clamp(40px,5.4vw,64px);line-height:1.1;margin:0 0 8px;
+  letter-spacing:2px;font-weight:900;
+}
+.zj-hero-line{
+  font-size:clamp(17px,2vw,21px);color:#cddbe0;margin:0 0 22px;font-weight:500;
+}
+.zj-hero-line em{color:var(--zj-accent);font-style:normal;}
+.zj-hero-desc{color:#b7c7ce;font-size:15px;margin:0 0 26px;max-width:520px;}
+.zj-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.zj-hero-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;border-top:1px solid rgba(255,255,255,.15);padding-top:22px;max-width:520px;
+}
+.zj-stat-num{font-size:27px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;}
+.zj-stat-num i{font-style:normal;color:var(--zj-accent);font-size:16px;margin-left:2px;}
+.zj-stat-label{font-size:12.5px;color:#9fb3bb;letter-spacing:.5px;}
+.zj-hero-visual{position:relative;}
+.zj-hero-frame{
+  border-radius:20px;overflow:hidden;position:relative;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 30px 60px rgba(0,0,0,.35);
+  aspect-ratio:16/11;background:#0d1519;
+}
+.zj-hero-frame img{width:100%;height:100%;object-fit:cover;}
+.zj-hero-chip{
+  position:absolute;left:16px;bottom:16px;right:16px;
+  background:rgba(15,23,28,.78);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:12px 15px;display:flex;align-items:center;gap:12px;
+}
+.zj-play{
+  width:38px;height:38px;border-radius:50%;flex:none;
+  background:var(--zj-accent);display:grid;place-items:center;
+}
+.zj-play svg{width:14px;height:14px;margin-left:2px;}
+.zj-hero-chip-t{font-size:13.5px;font-weight:600;line-height:1.4;}
+.zj-hero-chip-s{font-size:11.5px;color:#9fb3bb;letter-spacing:.3px;}
+.zj-hero-note{
+  position:absolute;top:-14px;right:-8px;background:#fff;color:var(--zj-ink);
+  border-radius:10px;padding:7px 13px;font-size:12.5px;font-weight:700;
+  box-shadow:var(--zj-shadow);
+}
+
+/* 通用 section */
+.zj-section{padding:62px 0;}
+.zj-section.alt{background:#fff;}
+.zj-sec-head{margin-bottom:32px;max-width:760px;}
+.zj-eyebrow{
+  font-size:12.5px;letter-spacing:3px;color:var(--zj-accent-deep);
+  font-weight:700;text-transform:uppercase;margin-bottom:8px;
+}
+h2.zj-h2{
+  font-size:clamp(25px,3vw,33px);line-height:1.25;margin:0 0 12px;
+  font-weight:800;letter-spacing:.5px;
+}
+.zj-sec-sub{color:var(--zj-muted);font-size:15px;margin:0;}
+.zj-sec-title-row{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;margin-bottom:30px;
+}
+h3.zj-h3{font-size:18px;margin:0 0 8px;font-weight:700;line-height:1.4;}
+
+/* 焦点内容 */
+.zj-focus{
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+  gap:26px;
+}
+.zj-focus-main{
+  background:#fff;border-radius:18px;overflow:hidden;
+  border:1px solid var(--zj-line);box-shadow:var(--zj-shadow);
+  display:flex;flex-direction:column;transition:.25s;
+}
+.zj-focus-main:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(23,32,38,.13);}
+.zj-focus-cover{position:relative;aspect-ratio:16/9;overflow:hidden;}
+.zj-focus-cover img{width:100%;height:100%;object-fit:cover;}
+.zj-badge-type{
+  position:absolute;left:14px;top:14px;background:var(--zj-accent);color:var(--zj-ink);
+  font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;
+}
+.zj-focus-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.zj-focus-body p{margin:0;color:var(--zj-ink-soft);font-size:14.5px;}
+.zj-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--zj-muted);}
+.zj-meta span{display:inline-flex;align-items:center;gap:5px;}
+.zj-focus-list{display:flex;flex-direction:column;gap:14px;}
+.zj-focus-item{
+  display:grid;grid-template-columns:88px minmax(0,1fr);gap:14px;
+  background:#fff;border:1px solid var(--zj-line);border-radius:13px;
+  padding:12px;transition:.22s;align-items:center;
+}
+.zj-focus-item:hover{border-color:var(--zj-accent-deep);transform:translateX(3px);}
+.zj-focus-item .thumb{
+  width:88px;aspect-ratio:1/1;border-radius:9px;overflow:hidden;flex:none;
+}
+.zj-focus-item .thumb img{width:100%;height:100%;object-fit:cover;}
+.zj-focus-item h4{margin:0 0 4px;font-size:15px;line-height:1.4;}
+.zj-focus-item p{margin:0;font-size:12.5px;color:var(--zj-muted);}
+
+/* 视频列表 */
+.zj-video-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;
+}
+.zj-video-card{
+  background:#fff;border:1px solid var(--zj-line);border-radius:16px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:.25s;
+}
+.zj-video-card:hover{transform:translateY(-5px);box-shadow:var(--zj-shadow);}
+.zj-video-cover{position:relative;aspect-ratio:16/9;overflow:hidden;}
+.zj-video-cover img{width:100%;height:100%;object-fit:cover;}
+.zj-cover-dur{
+  position:absolute;right:10px;bottom:10px;background:rgba(10,16,20,.8);
+  color:#fff;font-size:11.5px;padding:1px 7px;border-radius:5px;letter-spacing:.5px;
+}
+.zj-video-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1;}
+.zj-video-body p{margin:0;font-size:13.5px;color:var(--zj-ink-soft);}
+.zj-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.zj-tag{
+  font-size:11.5px;background:#eef3f3;color:var(--zj-teal);
+  padding:2px 9px;border-radius:99px;font-weight:600;
+}
+.zj-actions{
+  display:flex;gap:8px;margin-top:auto;padding-top:10px;
+  border-top:1px dashed var(--zj-line);flex-wrap:wrap;
+}
+.zj-act{
+  border:1px solid var(--zj-line);background:#fff;border-radius:8px;
+  padding:5px 11px;font-size:12.5px;color:var(--zj-ink-soft);
+  display:inline-flex;align-items:center;gap:5px;transition:.2s;
+}
+.zj-act:hover{border-color:var(--zj-accent-deep);color:var(--zj-ink);}
+.zj-act.active-like{background:#fff4dc;border-color:var(--zj-accent);color:var(--zj-accent-deep);}
+.zj-act.active-fav{background:#fdeeeb;border-color:#e39b8c;color:var(--zj-red);}
+.zj-act .ico{font-size:13px;line-height:1;}
+
+/* 视频列表（文字） */
+.zj-vlist{display:flex;flex-direction:column;gap:2px;background:#fff;border:1px solid var(--zj-line);border-radius:16px;overflow:hidden;}
+.zj-vrow{
+  display:grid;grid-template-columns:44px minmax(0,1fr) auto;
+  gap:16px;align-items:center;padding:16px 20px;
+  border-bottom:1px solid var(--zj-line);transition:.18s;
+}
+.zj-vrow:last-child{border-bottom:0;}
+.zj-vrow:hover{background:#fafcfc;}
+.zj-vrow-rank{
+  font-size:20px;font-weight:800;color:#c3ced4;font-variant-numeric:tabular-nums;text-align:center;
+}
+.zj-vrow:hover .zj-vrow-rank{color:var(--zj-accent-deep);}
+.zj-vrow-main h4{margin:0 0 3px;font-size:15.5px;}
+.zj-vrow-main p{margin:0;font-size:12.5px;color:var(--zj-muted);}
+.zj-vrow-data{display:flex;gap:14px;font-size:12.5px;color:var(--zj-muted);white-space:nowrap;}
+
+/* 专题 */
+.zj-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.zj-topic{
+  background:linear-gradient(150deg,#fff, #f6f9f9);
+  border:1px solid var(--zj-line);border-radius:16px;padding:22px 24px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.zj-topic-top{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.zj-topic-status{
+  font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:99px;
+  background:#e6f2f0;color:var(--zj-teal);white-space:nowrap;
+}
+.zj-topic-status.done{background:#eef0f2;color:var(--zj-muted);}
+.zj-topic ul{margin:0;padding-left:18px;color:var(--zj-ink-soft);font-size:14px;}
+.zj-topic ul li{margin-bottom:5px;}
+.zj-topic p{margin:0;font-size:14px;color:var(--zj-ink-soft);}
+
+/* 解析长文 */
+.zj-article{max-width:900px;}
+.zj-article p{color:var(--zj-ink-soft);font-size:15.5px;margin:0 0 16px;}
+.zj-article h3{margin-top:30px;}
+.zj-article .hl{
+  background:linear-gradient(transparent 62%, #fbe6b4 62%);font-weight:700;color:var(--zj-ink);
+}
+.zj-quote{
+  border-left:4px solid var(--zj-accent);background:#fff;
+  padding:16px 20px;border-radius:0 12px 12px 0;font-size:15px;
+  color:var(--zj-ink);margin:24px 0;box-shadow:var(--zj-shadow);
+}
+.zj-quote cite{display:block;font-style:normal;font-size:13px;color:var(--zj-muted);margin-top:8px;}
+
+/* 作者 */
+.zj-authors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
+.zj-author{
+  background:#fff;border:1px solid var(--zj-line);border-radius:15px;
+  padding:20px;display:flex;gap:16px;transition:.22s;
+}
+.zj-author:hover{box-shadow:var(--zj-shadow);border-color:#cbd6da;}
+.zj-avatar{
+  width:62px;height:62px;border-radius:50%;flex:none;overflow:hidden;
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:22px;
+}
+.zj-av-1{background:linear-gradient(140deg,#1f6f6b,#3ba39b);}
+.zj-av-2{background:linear-gradient(140deg,#c98a12,#f0b429);color:#3a2a06;}
+.zj-av-3{background:linear-gradient(140deg,#3d5a80,#5e84ad);}
+.zj-av-4{background:linear-gradient(140deg,#8a4b3c,#c07a55);}
+.zj-av-5{background:linear-gradient(140deg,#4c5b6b,#7b8b9c);}
+.zj-av-6{background:linear-gradient(140deg,#6a4c93,#9575cd);}
+.zj-author-body{min-width:0;flex:1;}
+.zj-author-name{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.zj-author-name strong{font-size:16.5px;}
+.zj-author-role{font-size:11.5px;background:#eef3f3;color:var(--zj-teal);padding:2px 9px;border-radius:99px;font-weight:600;}
+.zj-author-nums{display:flex;gap:14px;font-size:12.5px;color:var(--zj-muted);margin:5px 0 8px;}
+.zj-author-body p{margin:0;font-size:13.5px;color:var(--zj-ink-soft);}
+.zj-author-more{
+  margin-top:10px;border:0;background:transparent;color:var(--zj-accent-deep);
+  font-size:12.5px;font-weight:700;padding:0;
+}
+.zj-author-more:hover{text-decoration:underline;}
+
+/* 评论 */
+.zj-comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.zj-comment{
+  background:#fff;border:1px solid var(--zj-line);border-radius:14px;
+  padding:17px 19px;display:flex;flex-direction:column;gap:9px;
+}
+.zj-comment-head{display:flex;align-items:center;gap:10px;}
+.zj-c-avatar{
+  width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:13px;font-weight:700;color:#fff;
+}
+.zj-c-name{font-size:13.5px;font-weight:700;}
+.zj-c-date{font-size:11.5px;color:var(--zj-muted);margin-left:auto;}
+.zj-comment p{margin:0;font-size:14px;color:var(--zj-ink-soft);}
+.zj-stars{color:var(--zj-accent-deep);font-size:13px;letter-spacing:2px;}
+
+/* 榜单 */
+.zj-boards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+.zj-board{
+  background:#fff;border:1px solid var(--zj-line);border-radius:15px;padding:20px;
+}
+.zj-board h3{font-size:15.5px;margin:0 0 4px;}
+.zj-board-sub{font-size:12px;color:var(--zj-muted);margin:0 0 14px;}
+.zj-board ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;}
+.zj-board li{display:flex;align-items:center;gap:10px;font-size:13.5px;}
+.zj-bnum{
+  width:22px;height:22px;border-radius:6px;background:#eef1f2;color:var(--zj-ink-soft);
+  font-size:12px;font-weight:700;display:grid;place-items:center;flex:none;
+}
+.zj-board li:nth-child(1) .zj-bnum{background:var(--zj-accent);color:var(--zj-ink);}
+.zj-board li:nth-child(2) .zj-bnum{background:#c9d5da;color:var(--zj-ink);}
+.zj-board li:nth-child(3) .zj-bnum{background:#e2c9a4;color:#5c4316;}
+.zj-bscore{margin-left:auto;font-size:12px;color:var(--zj-muted);font-variant-numeric:tabular-nums;}
+
+/* 动态/合作/FAQ */
+.zj-split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:34px;align-items:start;}
+.zj-news{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--zj-line);border-radius:15px;overflow:hidden;}
+.zj-news li{
+  padding:16px 20px;border-bottom:1px solid var(--zj-line);
+  display:flex;gap:14px;align-items:flex-start;
+}
+.zj-news li:last-child{border-bottom:0;}
+.zj-news-date{
+  font-size:12px;color:var(--zj-accent-deep);font-weight:700;flex:none;
+  background:#fdf6e6;border-radius:6px;padding:2px 8px;margin-top:2px;
+}
+.zj-news p{margin:0;font-size:14px;color:var(--zj-ink-soft);}
+.zj-news p strong{color:var(--zj-ink);}
+.zj-partners{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.zj-partner{
+  background:#fff;border:1px solid var(--zj-line);border-radius:12px;
+  padding:15px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:10px;
+}
+.zj-partner i{
+  width:9px;height:9px;border-radius:2px;background:var(--zj-accent);flex:none;font-style:normal;
+}
+.zj-faq{display:flex;flex-direction:column;gap:10px;}
+.zj-faq details{
+  background:#fff;border:1px solid var(--zj-line);border-radius:12px;
+  padding:0 18px;transition:.2s;
+}
+.zj-faq details[open]{border-color:#cbd6da;box-shadow:var(--zj-shadow);}
+.zj-faq summary{
+  list-style:none;cursor:pointer;padding:15px 0;font-weight:600;font-size:14.5px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.zj-faq summary::-webkit-details-marker{display:none;}
+.zj-faq summary::after{content:"+";font-size:19px;color:var(--zj-accent-deep);font-weight:400;line-height:1;}
+.zj-faq details[open] summary::after{content:"−";}
+.zj-faq details p{margin:0 0 16px;font-size:14px;color:var(--zj-ink-soft);}
+
+/* 底部 CTA */
+.zj-cta{
+  background:linear-gradient(150deg,#1b272e,#234a46);color:#f1f6f5;
+  border-radius:20px;padding:38px 40px;
+  display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;
+}
+.zj-cta h2{font-size:clamp(22px,2.6vw,28px);margin:0 0 8px;color:#fff;}
+.zj-cta p{margin:0;color:#b7c7ce;font-size:14.5px;max-width:560px;}
+
+/* 页脚 */
+.zj-footer{background:#131c21;color:#9fb3bb;padding:46px 0 26px;margin-top:20px;}
+.zj-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;}
+.zj-footer h4{color:#fff;font-size:14.5px;margin:0 0 14px;font-weight:700;letter-spacing:.5px;}
+.zj-footer p{font-size:13.5px;margin:0 0 10px;line-height:1.8;}
+.zj-footer ul{list-style:none;margin:0;padding:0;font-size:13.5px;}
+.zj-footer li{margin-bottom:9px;}
+.zj-footer a:hover{color:var(--zj-accent);}
+.zj-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.zj-footer-brand .zj-brand-name{color:#fff;font-size:17px;}
+.zj-footer-bottom{
+  margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#71838c;
+}
+
+/* 悬浮工具 */
+.zj-float{
+  position:fixed;right:20px;bottom:24px;display:flex;flex-direction:column;gap:10px;z-index:70;
+}
+.zj-float button{
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--zj-line);
+  background:#fff;color:var(--zj-ink);box-shadow:var(--zj-shadow);
+  display:grid;place-items:center;font-size:16px;transition:.2s;
+}
+.zj-float button:hover{background:var(--zj-accent);border-color:var(--zj-accent);}
+.zj-top{opacity:0;pointer-events:none;transition:.25s;}
+.zj-top.show{opacity:1;pointer-events:auto;}
+
+/* 弹窗 & Toast */
+.zj-modal-mask{
+  position:fixed;inset:0;background:rgba(15,23,28,.6);z-index:100;
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+.zj-modal-mask.show{display:flex;}
+.zj-modal{
+  background:#fff;border-radius:16px;max-width:460px;width:100%;
+  padding:26px 26px 22px;box-shadow:0 30px 70px rgba(0,0,0,.35);
+  max-height:86vh;overflow:auto;
+}
+.zj-modal h3{margin:0 0 10px;font-size:19px;}
+.zj-modal p{font-size:14px;color:var(--zj-ink-soft);margin:0 0 16px;}
+.zj-modal .zj-actions{border-top:0;padding-top:0;}
+.zj-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:var(--zj-ink);color:#fff;font-size:13.5px;padding:11px 20px;
+  border-radius:99px;opacity:0;pointer-events:none;transition:.3s;z-index:120;
+  box-shadow:0 12px 30px rgba(0,0,0,.3);white-space:nowrap;
+}
+.zj-toast.show{opacity:1;transform:translate(-50%,0);}
+
+/* 响应式 */
+@media (max-width:960px){
+  .zj-hero-grid{grid-template-columns:1fr;gap:34px;padding:40px 22px 46px;}
+  .zj-focus{grid-template-columns:1fr;}
+  .zj-video-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .zj-boards{grid-template-columns:1fr;}
+  .zj-split{grid-template-columns:1fr;}
+  .zj-footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  html{scroll-padding-top:104px;}
+  .zj-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:#fff;border-bottom:1px solid var(--zj-line);
+    flex-direction:column;padding:10px 16px 16px;gap:2px;
+    box-shadow:0 14px 26px rgba(23,32,38,.1);
+  }
+  .zj-nav.open{display:flex;}
+  .zj-nav a{padding:10px 12px;}
+  .zj-header-inner{position:relative;flex-wrap:wrap;}
+  .zj-menu-toggle{display:block;order:3;}
+  .zj-head-tools{order:4;width:100%;margin-left:0;margin-top:8px;display:none;}
+  .zj-head-tools.open{display:flex;}
+  .zj-search{flex:1;}
+  .zj-search input,.zj-search input:focus{width:100%;}
+  .zj-video-grid{grid-template-columns:1fr;}
+  .zj-topics{grid-template-columns:1fr;}
+  .zj-authors{grid-template-columns:1fr;}
+  .zj-comments{grid-template-columns:1fr;}
+  .zj-hero-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .zj-stat-num{font-size:22px;}
+  .zj-section{padding:46px 0;}
+  .zj-cta{padding:28px 24px;}
+  .zj-footer-grid{grid-template-columns:1fr;}
+  .zj-vrow{grid-template-columns:32px minmax(0,1fr);}
+  .zj-vrow-data{grid-column:2;gap:10px;flex-wrap:wrap;}
+  .zj-partners{grid-template-columns:1fr;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="zj-sticky-head">
+  <div class="zj-announce">
+    <div class="zj-announce-inner">
+      <span class="zj-announce-tag">官方发布</span>
+      <span class="zj-announce-text"><b>《津渝手记·冬藏篇》</b>第 12 集已于 11 月 20 日上线，同步开启「城市微光」投稿征集，报名通道开放至 12 月 8 日。</span>
+      <a class="zj-announce-link" href="#zj-submit" data-zj-submit>立即投稿报名 →</a>
+    </div>
+  </div>
+  <header class="zj-header">
+    <div class="zj-header-inner">
+      <a class="zj-brand" href="#zj-top">
+        <span class="zj-brand-mark">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 20h20a6 6 0 0 1 6 6v18H26a8 8 0 0 1-8-8z" fill="#f0b429"/><path d="M27 30l12 7-12 7z" fill="#172026"/></svg>
+        </span>
+        <span>
+          <span class="zj-brand-name">张津渝</span>
+          <span class="zj-brand-sub">ZHANGJINYU STUDIO</span>
+        </span>
+      </a>
+      <nav class="zj-nav" id="zjNav" aria-label="主导航">
+        <a href="#zj-focus">焦点内容</a>
+        <a href="#zj-videos">影像作品</a>
+        <a href="#zj-topics">专题企划</a>
+        <a href="#zj-about">品牌解析</a>
+        <a href="#zj-authors">创作者</a>
+        <a href="#zj-voices">用户口碑</a>
+        <a href="#zj-faq">常见问题</a>
+      </nav>
+      <div class="zj-head-tools" id="zjTools">
+        <div class="zj-search">
+          <input type="search" id="zjSearchInput" placeholder="搜索作品 / 作者 / 专题" aria-label="站内搜索">
+          <button type="button" aria-label="搜索" id="zjSearchBtn">⌕</button>
+          <div class="zj-search-hint" id="zjSearchHint"></div>
+        </div>
+        <button class="zj-btn zj-btn-accent" type="button" data-zj-submit>投稿入口</button>
+      </div>
+      <button class="zj-menu-toggle" id="zjMenuToggle" type="button" aria-label="展开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+</div>
+
+<main id="zj-top">
+
+  <!-- 首屏 -->
+  <section class="zj-hero" aria-labelledby="zj-h1-title">
+    <div class="zj-hero-grid">
+      <div>
+        <span class="zj-hero-badge">官方网站 · 原创纪实影像品牌</span>
+        <h1 class="zj-h1" id="zj-h1-title">张津渝</h1>
+        <p class="zj-hero-line">用镜头，把<em>真实</em>留给时间</p>
+        <p class="zj-hero-desc">张津渝官方网站，是一家深耕城市纪实与人物访谈的原创视频企业。我们以专业影像记录普通人的日常力量，以多元内容生态陪伴创作者成长，让每一段值得被看见的故事，都拥有高清、正版的表达。</p>
+        <div class="zj-hero-actions">
+          <a class="zj-btn zj-btn-accent" href="#zj-videos">观看影像作品</a>
+          <a class="zj-btn zj-btn-ghost" href="#zj-about">了解品牌故事</a>
+          <button class="zj-btn zj-btn-ghost" type="button" data-zj-submit>加入创作者社区</button>
+        </div>
+        <div class="zj-hero-stats">
+          <div>
+            <div class="zj-stat-num">268<i>+</i></div>
+            <div class="zj-stat-label">原创纪实作品</div>
+          </div>
+          <div>
+            <div class="zj-stat-num">1,940<i>万</i></div>
+            <div class="zj-stat-label">全网累计播放</div>
+          </div>
+          <div>
+            <div class="zj-stat-num">86<i>位</i></div>
+            <div class="zj-stat-label">签约创作者</div>
+          </div>
+        </div>
+      </div>
+      <div class="zj-hero-visual">
+        <span class="zj-hero-note">第 12 集 · 冬藏篇</span>
+        <div class="zj-hero-frame">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 550'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a4a55'/%3E%3Cstop offset='.55' stop-color='%233a6b63'/%3E%3Cstop offset='1' stop-color='%23c98a12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='550' fill='url(%23g1)'/%3E%3Ccircle cx='640' cy='120' r='58' fill='%23f0b429' opacity='.9'/%3E%3Cpath d='M0 400 L150 300 L300 380 L470 260 L640 350 L800 280 L800 550 L0 550 Z' fill='%23172026' opacity='.55'/%3E%3Cpath d='M0 460 L180 380 L360 440 L540 360 L720 430 L800 400 L800 550 L0 550 Z' fill='%230f181c' opacity='.75'/%3E%3Cg stroke='%23e8eef1' stroke-width='2' opacity='.55'%3E%3Cpath d='M120 150 v90 M100 175 h40'/%3E%3Cpath d='M700 300 v70 M680 320 h40'/%3E%3C/g%3E%3Cg fill='%23f3f7f8' opacity='.85'%3E%3Ccircle cx='330' cy='180' r='4'/%3E%3Ccircle cx='380' cy='210' r='3'/%3E%3Ccircle cx='280' cy='230' r='3'/%3E%3C/g%3E%3C/svg%3E" alt="张津渝品牌首屏主视觉：暮色中的城市剪影与纪实镜头构图" width="800" height="550">
+          <div class="zj-hero-chip">
+            <span class="zj-play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5l11 6.5-11 6.5z" fill="#172026"/></svg></span>
+            <div>
+              <div class="zj-hero-chip-t">《一条街的十二时辰》· 完整正片</div>
+              <div class="zj-hero-chip-s">4K 高清 · 时长 26:40 · 官方出品</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section class="zj-section" id="zj-focus" aria-labelledby="zj-focus-title">
+    <div class="zj-wrap">
+      <div class="zj-sec-title-row">
+        <div class="zj-sec-head" style="margin-bottom:0;">
+          <div class="zj-eyebrow">FOCUS · 焦点内容</div>
+          <h2 class="zj-h2" id="zj-focus-title">本周焦点：张津渝镜头下的城市微光</h2>
+          <p class="zj-sec-sub">编辑部从近期上线的原创作品中，挑选出最值得完整观看的一组纪实影像，带你看见细节里的坚持与温度。</p>
+        </div>
+        <a class="zj-btn zj-btn-ghost" href="#zj-videos">查看全部作品</a>
+      </div>
+      <div class="zj-focus">
+        <article class="zj-focus-main">
+          <div class="zj-focus-cover">
+            <span class="zj-badge-type">重点推荐</span>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 405'%3E%3Crect width='720' height='405' fill='%231d2b33'/%3E%3Crect x='60' y='70' width='250' height='270' rx='10' fill='%23f0b429' opacity='.85'/%3E%3Crect x='100' y='110' width='170' height='12' rx='6' fill='%23172026'/%3E%3Crect x='100' y='140' width='120' height='9' rx='4.5' fill='%23172026' opacity='.6'/%3E%3Ccircle cx='470' cy='160' r='64' fill='none' stroke='%23e8eef1' stroke-width='6' opacity='.7'/%3E%3Cpath d='M448 130 l44 30 -44 30z' fill='%23e8eef1' opacity='.85'/%3E%3Crect x='390' y='270' width='270' height='10' rx='5' fill='%23e8eef1' opacity='.5'/%3E%3Crect x='390' y='298' width='190' height='10' rx='5' fill='%23e8eef1' opacity='.3'/%3E%3C/svg%3E" alt="焦点作品《一条街的十二时辰》封面：街区摄影与播放符号" width="720" height="405">
+          </div>
+          <div class="zj-focus-body">
+            <h3 class="zj-h3">《一条街的十二时辰》：从凌晨四点的早点摊，到深夜十一点的修表铺</h3>
+            <p>摄制组在老街驻守二十三天，跟随十七位普通居民完成一次完整的时间切片。张津渝在片中担任总导演与主摄影，用固定的机位与克制的剪辑，把一条街的呼吸声留在了画面里。</p>
+            <div class="zj-tags">
+              <span class="zj-tag">城市纪实</span>
+              <span class="zj-tag">人物访谈</span>
+              <span class="zj-tag">高清正版</span>
+            </div>
+            <div class="zj-meta">
+              <span>作者 · 张津渝</span>
+              <span>播放 86.4 万</span>
+              <span>点赞 <b id="zjFocusLike">12,308</b></span>
+            </div>
+            <div class="zj-actions">
+              <button class="zj-act" type="button" data-zj-like="zjFocusLike"><span class="ico">♡</span>点赞</button>
+              <button class="zj-act" type="button" data-zj-fav><span class="ico">☆</span>收藏</button>
+              <button class="zj-act" type="button" data-zj-share><span class="ico">↗</span>分享</button>
+              <button class="zj-act" type="button" data-zj-comment>查看评论</button>
+            </div>
+          </div>
+        </article>
+        <div class="zj-focus-list">
+          <article class="zj-focus-item">
+            <div class="thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%231f6f6b'/%3E%3Ccircle cx='60' cy='48' r='20' fill='%23e8eef1' opacity='.85'/%3E%3Cpath d='M24 112 q36 -38 72 0' fill='%23e8eef1' opacity='.6'/%3E%3C/svg%3E" alt="人物访谈作品《返乡的人》封面缩略图" width="120" height="120">
+            </div>
+            <div>
+              <h4>《返乡的人》：三个年轻人与一座小城的重逢</h4>
+              <p>访谈 · 播放 31.2 万 · 张津渝</p>
+            </div>
+          </article>
+          <article class="zj-focus-item">
+            <div class="thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23c98a12'/%3E%3Cpath d='M20 88 l24 -34 18 22 14 -26 24 38z' fill='%23172026' opacity='.75'/%3E%3Ccircle cx='86' cy='32' r='10' fill='%23faf3e0'/%3E%3C/svg%3E" alt="城市探索作品《沿河而居》封面缩略图" width="120" height="120">
+            </div>
+            <div>
+              <h4>《沿河而居》：一条河的上下游，两代人的生活</h4>
+              <p>城市探索 · 播放 27.6 万 · 创作者 河谷</p>
+            </div>
+          </article>
+          <article class="zj-focus-item">
+            <div class="thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%233d5a80'/%3E%3Crect x='26' y='30' width='68' height='44' rx='6' fill='%23e8eef1' opacity='.85'/%3E%3Crect x='38' y='84' width='44' height='7' rx='3.5' fill='%23e8eef1' opacity='.5'/%3E%3C/svg%3E" alt="教程干货作品《手机也能拍出电影感》封面缩略图" width="120" height="120">
+            </div>
+            <div>
+              <h4>《手机也能拍出电影感》：六条工地光线法则</h4>
+              <p>教程干货 · 播放 44.1 万 · 创作者 阿序</p>
+            </div>
+          </article>
+          <article class="zj-focus-item">
+            <div class="thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%238a4b3c'/%3E%3Cpath d='M30 90 q30 -52 60 0' fill='none' stroke='%23f6e8d8' stroke-width='6'/%3E%3Ccircle cx='60' cy='42' r='11' fill='%23f6e8d8'/%3E%3C/svg%3E" alt="治愈影像作品《一碗面的时间》封面缩略图" width="120" height="120">
+            </div>
+            <div>
+              <h4>《一碗面的时间》：深夜小店的第十五位常客</h4>
+              <p>治愈影像 · 播放 19.8 万 · 创作者 秦小满</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 视频内容 -->
+  <section class="zj-section alt" id="zj-videos" aria-labelledby="zj-videos-title">
+    <div class="zj-wrap">
+      <div class="zj-sec-head">
+        <div class="zj-eyebrow">WORKS · 影像作品</div>
+        <h2 class="zj-h2" id="zj-videos-title">张津渝官方精选影像：三列等高卡片</h2>
+        <p class="zj-sec-sub">涵盖城市探索、经验分享与创作幕后，全部为品牌原创正版内容，支持高清在线观看与收藏。</p>
+      </div>
+      <div class="zj-video-grid">
+        <article class="zj-video-card">
+          <div class="zj-video-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23233b45'/%3E%3Cpath d='M0 250 L130 190 L260 240 L400 165 L540 235 L640 200 L640 360 L0 360Z' fill='%23172026' opacity='.8'/%3E%3Ccircle cx='510' cy='90' r='40' fill='%23f0b429'/%3E%3Cg stroke='%23e8eef1' stroke-width='2' opacity='.5'%3E%3Cpath d='M80 70 h90 M80 100 h60 M80 130 h75'/%3E%3C/g%3E%3C/svg%3E" alt="城市探索作品《凌晨四点的早点摊》封面" width="640" height="360">
+            <span class="zj-cover-dur">18:22</span>
+          </div>
+          <div class="zj-video-body">
+            <h3 class="zj-h3">《凌晨四点的早点摊》</h3>
+            <p>跟随张津渝的镜头走进街角早点铺，记录一对夫妻三十年如一日的清晨劳作与默契。</p>
+            <div class="zj-tags"><span class="zj-tag">城市探索</span><span class="zj-tag">日常记录</span></div>
+            <div class="zj-meta"><span>张津渝</span><span>播放 42.7 万</span><span>收藏 9,120</span></div>
+            <div class="zj-actions">
+              <button class="zj-act" type="button" data-zj-count><span class="ico">♡</span><span class="zj-cnt">5,842</span></button>
+              <button class="zj-act" type="button" data-zj-fav><span class="ico">☆</span>收藏</button>
+              <button class="zj-act" type="button" data-zj-share><span class="ico">↗</span>分享</button>
+            </div>
+          </div>
+        </article>
+        <article class="zj-video-card">
+          <div class="zj-video-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%231f6f6b'/%3E%3Crect x='90' y='75' width='200' height='150' rx='9' fill='%23e8eef1' opacity='.9'/%3E%3Crect x='120' y='105' width='140' height='10' rx='5' fill='%23233b45'/%3E%3Crect x='120' y='130' width='100' height='8' rx='4' fill='%23233b45' opacity='.5'/%3E%3Crect x='120' y='152' width='120' height='8' rx='4' fill='%23233b45' opacity='.35'/%3E%3Cpath d='M400 100 l80 50 -80 50z' fill='%23f0b429'/%3E%3C/svg%3E" alt="教程干货作品《人物访谈的三个提问技巧》封面" width="640" height="360">
+            <span class="zj-cover-dur">12:05</span>
+          </div>
+          <div class="zj-video-body">
+            <h3 class="zj-h3">《人物访谈的三个提问技巧》</h3>
+            <p>张津渝拆解自己采访八十余位普通人时最常用的三段式提问结构，附现场实录片段。</p>
+            <div class="zj-tags"><span class="zj-tag">教程干货</span><span class="zj-tag">人物访谈</span></div>
+            <div class="zj-meta"><span>张津渝</span><span>播放 36.5 万</span><span>收藏 12,004</span></div>
+            <div class="zj-actions">
+              <button class="zj-act" type="button" data-zj-count><span class="ico">♡</span><span class="zj-cnt">7,219</span></button>
+              <button class="zj-act" type="button" data-zj-fav><span class="ico">☆</span>收藏</button>
+              <button class="zj-act" type="button" data-zj-share><span class="ico">↗</span>分享</button>
+            </div>
+          </div>
+        </article>
+        <article class="zj-video-card">
+          <div class="zj-video-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23c98a12'/%3E%3Cg fill='%233a2a06' opacity='.8'%3E%3Crect x='70' y='210' width='120' height='90' rx='6'/%3E%3Crect x='210' y='170' width='150' height='130' rx='6'/%3E%3Crect x='380' y='220' width='110' height='80' rx='6'/%3E%3C/g%3E%3Ccircle cx='510' cy='90' r='34' fill='%23faf3e0' opacity='.9'/%3E%3C/svg%3E" alt="在地文化作品《老手艺的最后一批徒弟》封面" width="640" height="360">
+            <span class="zj-cover-dur">21:47</span>
+          </div>
+          <div class="zj-video-body">
+            <h3 class="zj-h3">《老手艺的最后一批徒弟》</h3>
+            <p>走进木器工坊，记录五位年轻学徒与一位七十三岁老师傅之间关于手艺与耐心的传承。</p>
+            <div class="zj-tags"><span class="zj-tag">在地文化</span><span class="zj-tag">创作幕后</span></div>
+            <div class="zj-meta"><span>创作者 河谷</span><span>播放 28.9 万</span><span>收藏 6,318</span></div>
+            <div class="zj-actions">
+              <button class="zj-act" type="button" data-zj-count><span class="ico">♡</span><span class="zj-cnt">4,106</span></button>
+              <button class="zj-act" type="button" data-zj-fav><span class="ico">☆</span>收藏</button>
+              <button class="zj-act" type="button" data-zj-share><span class="ico">↗</span>分享</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div style="margin-top:26px;" class="zj-vlist">
+        <div class="zj-vrow">
+          <div class="zj-vrow-rank">01</div>
+          <div class="zj-vrow-main">
+            <h4>《菜市场里的社会学》：一次关于价格的随机采访</h4>
+            <p>深度测评 · 创作者 阿序 · 标签：日常记录 / 行业观察</p>
+          </div>
+          <div class="zj-vrow-data"><span>播放 24.3 万</span><span>点赞 3,806</span></div>
+        </div>
+        <div class="zj-vrow">
+          <div class="zj-vrow-rank">02</div>
+          <div class="zj-vrow-main">
+            <h4>《剪辑台上的一百次删除》：拍摄素材如何变成故事</h4>
+            <p>创作幕后 · 创作者 张津渝 · 标签：剪辑 / 干货</p>
+          </div>
+          <div class="zj-vrow-data"><span>播放 21.9 万</span><span>点赞 3,412</span></div>
+        </div>
+        <div class="zj-vrow">
+          <div class="zj-vrow-rank">03</div>
+          <div class="zj-vrow-main">
+            <h4>《给父亲拍一部短片》：一次不太熟练的家庭拍摄</h4>
+            <p>情感故事 · 创作者 秦小满 · 标签：家庭 / 治愈</p>
+          </div>
+          <div class="zj-vrow-data"><span>播放 18.6 万</span><span>点赞 2,977</span></div>
+        </div>
+        <div class="zj-vrow">
+          <div class="zj-vrow-rank">04</div>
+          <div class="zj-vrow-main">
+            <h4>《雨天收音指南》：环境声在纪实片中的四种用法</h4>
+            <p>实用技巧 · 创作者 老白收音 · 标签：音频 / 教程</p>
+          </div>
+          <div class="zj-vrow-data"><span>播放 16.1 万</span><span>点赞 2,540</span></div>
+        </div>
+        <div class="zj-vrow">
+          <div class="zj-vrow-rank">05</div>
+          <div class="zj-vrow-main">
+            <h4>《我为什么坚持拍普通人》：一次深夜的自述</h4>
+            <p>品牌故事 · 创作者 张津渝 · 标签：访谈 / 理念</p>
+          </div>
+          <div class="zj-vrow-data"><span>播放 15.4 万</span><span>点赞 2,318</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="zj-section" id="zj-topics" aria-labelledby="zj-topics-title">
+    <div class="zj-wrap">
+      <div class="zj-sec-head">
+        <div class="zj-eyebrow">SERIES · 专题企划</div>
+        <h2 class="zj-h2" id="zj-topics-title">张津渝专题企划：让内容生态持续生长</h2>
+        <p class="zj-sec-sub">每一个专题都对应一次完整的长期观察计划，由品牌团队与创作者共同参与，保持稳定更新与品质把控。</p>
+      </div>
+      <div class="zj-topics">
+        <article class="zj-topic">
+          <div class="zj-topic-top">
+            <h3 class="zj-h3" style="margin:0;">专题一 ·《城市微光》</h3>
+            <span class="zj-topic-status">更新中 · 每周三</span>
+          </div>
+          <p>以固定机位记录城市里那些被忽略的角落和坚守者，强调真实、克制的影像表达，是本品牌影响力最高的长期企划。</p>
+          <ul>
+            <li>第一辑：街角修鞋摊的第三十年</li>
+            <li>第二辑：夜班公交司机的最后一站</li>
+            <li>第三辑：凌晨开门的社区图书室</li>
+          </ul>
+          <button class="zj-btn zj-btn-ghost" type="button" data-zj-submit style="align-self:flex-start;">报名参与拍摄</button>
+        </article>
+        <article class="zj-topic">
+          <div class="zj-topic-top">
+            <h3 class="zj-h3" style="margin:0;">专题二 ·《创作者手记》</h3>
+            <span class="zj-topic-status">更新中 · 双周更</span>
+          </div>
+          <p>邀请平台签约创作者讲述自己的拍摄方法、踩坑经验与选题逻辑，为新人提供可复用的实战攻略。</p>
+          <ul>
+            <li>手记 07：一个人如何完成双机位拍摄</li>
+            <li>手记 08：如何用一支话筒录出干净环境声</li>
+            <li>手记 09：投稿被退回之后我改了什么</li>
+          </ul>
+          <button class="zj-btn zj-btn-ghost" type="button" data-zj-submit style="align-self:flex-start;">提交你的手记</button>
+        </article>
+        <article class="zj-topic">
+          <div class="zj-topic-top">
+            <h3 class="zj-h3" style="margin:0;">专题三 ·《小城青年》</h3>
+            <span class="zj-topic-status">更新中 · 月更</span>
+          </div>
+          <p>聚焦非一线城市年轻人的职业与生活选择，用访谈与日常跟拍交叉呈现，展现多元而真实的人生样本。</p>
+          <ul>
+            <li>第一期：回到县城开书店的第九个月</li>
+            <li>第二期：在社区做咖啡的两个人</li>
+            <li>第三期：从工厂到镜头后的五年</li>
+          </ul>
+          <button class="zj-btn zj-btn-ghost" type="button" data-zj-submit style="align-self:flex-start;">推荐采访对象</button>
+        </article>
+        <article class="zj-topic">
+          <div class="zj-topic-top">
+            <h3 class="zj-h3" style="margin:0;">专题四 ·《冬藏计划》</h3>
+            <span class="zj-topic-status done">已完结 · 全 6 集</span>
+          </div>
+          <p>年度收官企划，围绕冬季生活影像展开，包含拍摄挑战、作品投票与线下放映，是品牌社区年度参与度最高的活动之一。</p>
+          <ul>
+            <li>第 4 集：雪后清晨的第一锅汤</li>
+            <li>第 5 集：旧衣改造与缝纫机旁的下午</li>
+            <li>第 6 集：年终剪辑室里的复盘会</li>
+          </ul>
+          <button class="zj-btn zj-btn-ghost" type="button" data-zj-share style="align-self:flex-start;">分享专题给朋友</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌解析长文 -->
+  <section class="zj-section alt" id="zj-about" aria-labelledby="zj-about-title">
+    <div class="zj-wrap">
+      <div class="zj-sec-head">
+        <div class="zj-eyebrow">BRAND · 品牌解析</div>
+        <h2 class="zj-h2" id="zj-about-title">关于张津渝：一个把镜头对准普通人的视频品牌</h2>
+        <p class="zj-sec-sub">企业简介与关键词深度解析，帮助新朋友理解我们为什么拍、拍什么、以及如何持续运营一个值得信赖的内容社区。</p>
+      </div>
+      <div class="zj-article">
+        <p>张津渝官方网站是一家专注于原创纪实影像与人物访谈的视频企业。团队自成立以来，始终围绕“真实”这一核心命题展开创作，累计完成原创作品 268 余部，覆盖城市探索、在地文化、日常记录、创作幕后等多个题材方向。我们相信，真正有力量的内容并不依赖夸张的表达，而是来自对细节的长期观察与耐心整理。作为一个持续运营的视频品牌，我们同时为创作者提供拍摄支持、剪辑指导与发布服务，帮助他们把好的想法变成可以被更多人看见的成品，并以高清、正版的标准维护内容品质与用户信任。</p>
+        <p>在企业定位上，我们更愿意把自己看作一座桥梁：一端连着愿意认真记录生活的创作者，另一端连着希望看到真实故事的观众与企业伙伴。平台通过专题企划、创作比赛与投稿入口，把分散的创作力量组织起来，形成稳定而多元的内容生态；通过官方发布、编辑推荐与口碑评价机制，把值得信赖的精品内容送到更靠前的位置。我们希望每一位来到这里的用户，都能感受到内容背后的诚意，也愿意把自己的故事交给这个社区。</p>
+
+        <h3 class="zj-h3">关键词解析之一：为什么“张津渝”首先是一个纪实方法</h3>
+        <p>很多人第一次听到张津渝，会以为这只是一个创作者的名字。但在我们的实际工作里，它更像一套可以拆解的方法：先花时间观察，再决定拍谁；先用文字把人物关系写清楚，再拿起摄影机；先确认被拍摄者愿意被如何呈现，再考虑镜头语言。这套方法带来的直接结果，是作品里很少出现被安排好的对白，也很少出现为了情绪而刻意放大的配乐。我们在拍摄《一条街的十二时辰》时，摄制组在街区连住了二十三天，最初的一周几乎没有开机，只是每天早中晚各走一遍，记录摊主们的作息、争执与寒暄。</p>
+        <p>这种方法也让品牌在选题上保持了克制。我们不追逐短期的热点，而是倾向于寻找能够被反复观看、时间越久越有味道的题材。例如《老手艺的最后一批徒弟》，从最初接触到成片发布，前后跨度接近五个月；《菜市场里的社会学》则是在同一个市场完成了三十多次随机采访，最终只保留了十一分钟。这些工作方式看起来并不高效，但它们构成了张津渝官方网站最核心的品质承诺：<span class="hl">我们愿意为真实付出时间成本，也愿意为专业承担反复修改的代价。</span></p>
+
+        <h3 class="zj-h3">关键词解析之二：一个视频品牌如何持续运营内容生态</h3>
+        <p>持续运营是比单部作品更难的事。为了让内容生态保持活力，我们把工作拆成三条并行的线：第一条是品牌自制，由核心团队负责年度重点专题与深度访谈，保证品质上限；第二条是创作者共创，签约创作者围绕固定企划提交作品，由编辑团队提供选题建议与后期反馈；第三条是社区征集，面向所有用户开放投稿入口，通过主题挑战、作品投票与月度榜单，让更多新人获得展示机会。三条线互为补充，既保证了官方发布的稳定节奏，也保留了社区自然生长的空间。</p>
+        <p>在具体的运营细节上，我们为每一部上线作品建立完整档案，包括拍摄手记、素材来源说明、被拍摄者授权状态与后期版本记录，确保内容可追溯、可复核。对于引用他人素材或使用音乐的情况，团队会逐条确认授权范围，坚持正版与合规。这些看起来琐碎的工作，正是我们能够被用户长期信赖的原因。很多观众在评论里提到，看张津渝的作品会有一种安心的感觉——不是因为画面多么华丽，而是因为你知道镜头背后的创作者没有敷衍。</p>
+
+        <h3 class="zj-h3">关键词解析之三：从一部片到一座社区，真实如何产生力量</h3>
+        <p>如果说早期我们更关注“把一部片拍好”，那么现在更关注“让一群人被看见”。社区里的创作者来自不同行业：有在县城开书店的年轻人，有做社区咖啡的夫妻，也有从工厂转行做剪辑的新人。他们带来的题材各不相同，但共同点是愿意认真地讲述自己的生活。张津渝作为品牌，为这些讲述提供方法与舞台：定期的线上工作坊、可复用的拍摄清单、剪辑思路分享，以及相对稳定的发布渠道。我们不承诺每个人都能一夜之间获得关注，但我们承诺每一次认真的提交都会被阅读和回复。</p>
+        <p>这种社区氛围也反过来影响了品牌自身。许多专题的选题最初来自用户的推荐与留言，一些拍摄技巧的改进建议也来自创作者之间的讨论。我们把这些反馈整理成公开的更新日志，让内容生态的成长过程可以被看见。对一家视频企业来说，影响力的来源不只是播放量，更是参与感与信任感。张津渝官方网站希望成为用户首选的纪实影像社区，也希望成为创作者愿意长期停留的地方——这不仅是一句口号，而是我们每天在剪辑室、在拍摄现场、在评论区里反复实践的事情。</p>
+
+        <blockquote class="zj-quote">
+          “我们拍的不是传奇，是那些每天都在发生、却很少被认真看过的生活。把它们留下来，就是这份工作最大的意义。”
+          <cite>—— 张津渝 · 品牌年度创作手记</cite>
+        </blockquote>
+
+        <p>未来一年，品牌将继续围绕城市纪实与人物访谈深耕垂直领域，计划推出不少于四个长线专题，开放两轮创作比赛报名，并完善创作者成长体系与作品授权说明。我们也会持续更新官方网站的作品索引与常见问题，让第一次来到这里的用户能够快速找到想看的内容，让长期关注我们的朋友能够清楚地知道团队在做什么。真实、专业、值得信赖，是张津渝希望长期保持的三个关键词，也是我们对每一位用户与创作者的承诺。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="zj-section" id="zj-authors" aria-labelledby="zj-authors-title">
+    <div class="zj-wrap">
+      <div class="zj-sec-head">
+        <div class="zj-eyebrow">CREATORS · 创作者矩阵</div>
+        <h2 class="zj-h2" id="zj-authors-title">张津渝签约创作者：双列简介</h2>
+        <p class="zj-sec-sub">他们是品牌内容生态里最重要的部分，来自不同城市与行业，用各自的镜头语言记录真实生活。</p>
+      </div>
+      <div class="zj-authors">
+        <article class="zj-author">
+          <div class="zj-avatar zj-av-1">张</div>
+          <div class="zj-author-body">
+            <div class="zj-author-name"><strong>张津渝</strong><span class="zj-author-role">品牌主理人</span></div>
+            <div class="zj-author-nums"><span>作品 126</span><span>粉丝 68.4 万</span></div>
+            <p>总导演与主摄影，擅长城市纪实与人物访谈。坚持长周期跟拍与克制剪辑，主张先理解人物关系再开机。代表作《一条街的十二时辰》《我为什么坚持拍普通人》。</p>
+            <button class="zj-author-more" type="button" data-zj-author="张津渝|品牌主理人|总导演与主摄影，擅长城市纪实与人物访谈。坚持长周期跟拍与克制剪辑，主张先理解人物关系再开机。代表作《一条街的十二时辰》。">查看作者档案 →</button>
+          </div>
+        </article>
+        <article class="zj-author">
+          <div class="zj-avatar zj-av-2">河</div>
+          <div class="zj-author-body">
+            <div class="zj-author-name"><strong>河谷</strong><span class="zj-author-role">城市探索</span></div>
+            <div class="zj-author-nums"><span>作品 41</span><span>粉丝 23.7 万</span></div>
+            <p>长期行走于河流与老城之间，擅长把地理空间讲成人物故事。拍摄风格偏冷静，偏爱自然光与长镜头，作品多聚焦在地文化与手艺传承，《沿河而居》为其代表系列。</p>
+            <button class="zj-author-more" type="button" data-zj-author="河谷|城市探索|长期行走于河流与老城之间，擅长把地理空间讲成人物故事。拍摄风格偏冷静，偏爱自然光与长镜头，作品多聚焦在地文化与手艺传承。">查看作者档案 →</button>
+          </div>
+        </article>
+        <article class="zj-author">
+          <div class="zj-avatar zj-av-3">序</div>
+          <div class="zj-author-body">
+            <div class="zj-author-name"><strong>阿序</strong><span class="zj-author-role">教程干货</span></div>
+            <div class="zj-author-nums"><span>作品 58</span><span>粉丝 31.2 万</span></div>
+            <p>从工程行业转行做影像的创作者，擅长把复杂技术讲得通俗。以手机拍摄与低成本布光教程见长，课程逻辑清晰、步骤可复制，是社区新人最喜欢的实用型作者之一。</p>
+            <button class="zj-author-more" type="button" data-zj-author="阿序|教程干货|从工程行业转行做影像的创作者，擅长把复杂技术讲得通俗。以手机拍摄与低成本布光教程见长，课程逻辑清晰、步骤可复制。">查看作者档案 →</button>
+          </div>
+        </article>
+        <article class="zj-author">
+          <div class="zj-avatar zj-av-4">满</div>
+          <div class="zj-author-body">
+            <div class="zj-author-name"><strong>秦小满</strong><span class="zj-author-role">情感故事</span></div>
+            <div class="zj-author-nums"><span>作品 34</span><span>粉丝 19.5 万</span></div>
+            <p>关注家庭关系与日常情感，作品节奏舒缓、细节饱满。擅长在很小的场景里找到情绪支点，代表作为《给父亲拍一部短片》《一碗面的时间》，治愈影像风格鲜明。</p>
+            <button class="zj-author-more" type="button" data-zj-author="秦小满|情感故事|关注家庭关系与日常情感，作品节奏舒缓、细节饱满。擅长在很小的场景里找到情绪支点，治愈影像风格鲜明。">查看作者档案 →</button>
+          </div>
+        </article>
+        <article class="zj-author">
+          <div class="zj-avatar zj-av-5">白</div>
+          <div class="zj-author-body">
+            <div class="zj-author-name"><strong>老白收音</strong><span class="zj-author-role">声音指导</span></div>
+            <div class="zj-author-nums"><span>作品 47</span><span>粉丝 15.8 万</span></div>
+            <p>声音设计与现场收音方向的创作者，主张“先听见，再看见”。长期分享环境声采集、话筒摆放与后期降噪经验，为社区提供大量可直接落地的音频技巧与素材管理方法。</p>
+            <button class="zj-author-more" type="button" data-zj-author="老白收音|声音指导|声音设计与现场收音方向的创作者，主张先听见再看见。长期分享环境声采集、话筒摆放与后期降噪经验。">查看作者档案 →</button>
+          </div>
+        </article>
+        <article class="zj-author">
+          <div class="zj-avatar zj-av-6">林</div>
+          <div class="zj-author-body">
+            <div class="zj-author-name"><strong>林间放映</strong><span class="zj-author-role">户外记录</span></div>
+            <div class="zj-author-nums"><span>作品 29</span><span>粉丝 12.6 万</span></div>
+            <p>专注户外与自然题材的记录者，常年在山野与露营地拍摄。作品强调现场感与呼吸感，擅长用极简设备完成长时段跟拍，为社区带来大量户外拍摄攻略与安全经验分享。</p>
+            <button class="zj-author-more" type="button" data-zj-author="林间放映|户外记录|专注户外与自然题材的记录者，常年在山野与露营地拍摄。作品强调现场感与呼吸感，擅长用极简设备完成长时段跟拍。">查看作者档案 →</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 榜单 + 评价 -->
+  <section class="zj-section alt" id="zj-voices" aria-labelledby="zj-voices-title">
+    <div class="zj-wrap">
+      <div class="zj-sec-head">
+        <div class="zj-eyebrow">RANKING &amp; VOICES</div>
+        <h2 class="zj-h2" id="zj-voices-title">张津渝官方榜单与用户口碑</h2>
+        <p class="zj-sec-sub">榜单依据站内播放、收藏与互动综合计算；评价来自真实用户留言，长短不一，维度各异。</p>
+      </div>
+      <div class="zj-boards" style="margin-bottom:38px;">
+        <div class="zj-board">
+          <h3 class="zj-h3" style="margin-bottom:2px;">热度榜</h3>
+          <p class="zj-board-sub">近 7 日综合热度</p>
+          <ol>
+            <li><span class="zj-bnum">1</span>一条街的十二时辰<span class="zj-bscore">98.6</span></li>
+            <li><span class="zj-bnum">2</span>凌晨四点的早点摊<span class="zj-bscore">95.2</span></li>
+            <li><span class="zj-bnum">3</span>人物访谈的三个提问技巧<span class="zj-bscore">93.8</span></li>
+            <li><span class="zj-bnum">4</span>老手艺的最后一批徒弟<span class="zj-bscore">90.4</span></li>
+            <li><span class="zj-bnum">5</span>沿河而居<span class="zj-bscore">88.1</span></li>
+          </ol>
+        </div>
+        <div class="zj-board">
+          <h3 class="zj-h3" style="margin-bottom:2px;">新人榜</h3>
+          <p class="zj-board-sub">本月首次发布作品</p>
+          <ol>
+            <li><span class="zj-bnum">1</span>旧物修复室<span class="zj-bscore">86.7</span></li>
+            <li><span class="zj-bnum">2</span>县城的夜班书店<span class="zj-bscore">84.3</span></li>
+            <li><span class="zj-bnum">3</span>菜市场里的声音地图<span class="zj-bscore">82.9</span></li>
+            <li><span class="zj-bnum">4</span>一个下午的四次重拍<span class="zj-bscore">80.5</span></li>
+            <li><span class="zj-bnum">5</span>楼顶上的种菜老人<span class="zj-bscore">78.2</span></li>
+          </ol>
+        </div>
+        <div class="zj-board">
+          <h3 class="zj-h3" style="margin-bottom:2px;">口碑榜</h3>
+          <p class="zj-board-sub">用户评分与完播率</p>
+          <ol>
+            <li><span class="zj-bnum">1</span>给父亲拍一部短片<span class="zj-bscore">9.7</span></li>
+            <li><span class="zj-bnum">2</span>一碗面的时间<span class="zj-bscore">9.5</span></li>
+            <li><span class="zj-bnum">3</span>我为什么坚持拍普通人<span class="zj-bscore">9.4</span></li>
+            <li><span class="zj-bnum">4</span>剪辑台上的一百次删除<span class="zj-bscore">9.2</span></li>
+            <li><span class="zj-bnum">5</span>雨天收音指南<span class="zj-bscore">9.0</span></li>
+          </ol>
+        </div>
+      </div>
+      <div class="zj-comments">
+        <article class="zj-comment">
+          <div class="zj-comment-head">
+            <div class="zj-c-avatar" style="background:#1f6f6b;">周</div>
+            <span class="zj-c-name">周野</span>
+            <span class="zj-c-date">11 月 20 日</span>
+          </div>
+          <div class="zj-stars">★★★★★</div>
+          <p>看完《一条街的十二时辰》后特意去了那条街。片子里修表铺的位置、早点摊的蒸汽都没有被修饰，这种克制很难得，是真正的原创纪实。</p>
+        </article>
+        <article class="zj-comment">
+          <div class="zj-comment-head">
+            <div class="zj-c-avatar" style="background:#c98a12;">米</div>
+            <span class="zj-c-name">米粒不加糖</span>
+            <span class="zj-c-date">11 月 18 日</span>
+          </div>
+          <div class="zj-stars">★★★★★</div>
+          <p>新人投稿了两条片子，编辑的回信写了将近八百字，连转场节奏都标了时间点。很少见到官方会这样认真回复普通投稿者。</p>
+        </article>
+        <article class="zj-comment">
+          <div class="zj-comment-head">
+            <div class="zj-c-avatar" style="background:#3d5a80;">阿</div>
+            <span class="zj-c-name">阿序的学员</span>
+            <span class="zj-c-date">11 月 16 日</span>
+          </div>
+          <div class="zj-stars">★★★★☆</div>
+          <p>手机拍摄那期教程很实用，但希望能再补一节关于稳定器的内容。整体画质清晰，讲解语速也舒服，适合反复看。</p>
+        </article>
+        <article class="zj-comment">
+          <div class="zj-comment-head">
+            <div class="zj-c-avatar" style="background:#8a4b3c;">梁</div>
+            <span class="zj-c-name">梁二</span>
+            <span class="zj-c-date">11 月 14 日</span>
+          </div>
+          <div class="zj-stars">★★★★★</div>
+          <p>《老手艺的最后一批徒弟》里老师傅那句“急不得”，我截了图放在手机里。希望这个专题能一直做下去，多拍一些快要消失的手艺。</p>
+        </article>
+        <article class="zj-comment">
+          <div class="zj-comment-head">
+            <div class="zj-c-avatar" style="background:#4c5b6b;">江</div>
+            <span class="zj-c-name">江边散步</span>
+            <span class="zj-c-date">11 月 12 日</span>
+          </div>
+          <div class="zj-stars">★★★★☆</div>
+          <p>专题企划的更新频率比较稳定，收藏夹里已经存了十几条。唯一的小建议是网页播放列表能不能支持连续播放，现在每集都要手动点。</p>
+        </article>
+        <article class="zj-comment">
+          <div class="zj-comment-head">
+            <div class="zj-c-avatar" style="background:#6a4c93;">木</div>
+            <span class="zj-c-name">木星上行</span>
+            <span class="zj-c-date">11 月 9 日</span>
+          </div>
+          <div class="zj-stars">★★★★★</div>
+          <p>在创作比赛里认识了几位同城创作者，后来一起合拍了一条短片。这个社区的氛围很好，讨论技术问题的时候没有人端架子。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 动态 / 合作 / FAQ -->
+  <section class="zj-section" id="zj-faq" aria-labelledby="zj-assist-title">
+    <div class="zj-wrap">
+      <div class="zj-sec-head">
+        <div class="zj-eyebrow">SERVICE · 服务与动态</div>
+        <h2 class="zj-h2" id="zj-assist-title">张津渝企业动态、合作伙伴与常见问题</h2>
+        <p class="zj-sec-sub">官方发布的最新消息、长期合作的品牌伙伴，以及新用户最常问到的几个问题。</p>
+      </div>
+      <div class="zj-split">
+        <div>
+          <h3 class="zj-h3" style="margin-bottom:14px;">企业动态 · 更新日志</h3>
+          <ul class="zj-news">
+            <li>
+              <span class="zj-news-date">11.20</span>
+              <p><strong>《津渝手记·冬藏篇》第 12 集上线。</strong>同步开放「城市微光」投稿征集，主题为“我身边的那盏灯”，报名截止 12 月 8 日。</p>
+            </li>
+            <li>
+              <span class="zj-news-date">11.15</span>
+              <p><strong>创作者成长计划第二期启动。</strong>新增音频与剪辑两个方向的导师席位，面向社区开放二十个名额，需提交一条完整作品参与筛选。</p>
+            </li>
+            <li>
+              <span class="zj-news-date">11.08</span>
+              <p><strong>官方网站作品索引完成改版。</strong>新增按题材、时长与更新状态检索的功能，并补充了每部作品的授权说明与拍摄手记入口。</p>
+            </li>
+            <li>
+              <span class="zj-news-date">10.30</span>
+              <p><strong>年度线下放映会定档。</strong>计划于 12 月下旬举办小规模放映与创作者交流，具体入场方式将通过官方发布渠道公布。</p>
+            </li>
+          </ul>
+          <h3 class="zj-h3" style="margin:30px 0 14px;">合作品牌 · 伙伴</h3>
+          <div class="zj-partners">
+            <div class="zj-partner"><i></i>青禾书店</div>
+            <div class="zj-partner"><i></i>河口咖啡</div>
+            <div class="zj-partner"><i></i>拾光影像器材</div>
+            <div class="zj-partner"><i></i>木作工坊计划</div>
+          </div>
+        </div>
+        <div>
+          <h3 class="zj-h3" style="margin-bottom:14px;">常见问题 · FAQ</h3>
+          <div class="zj-faq">
+            <details open>
+              <summary>张津渝官方网站主要发布什么类型的内容？</summary>
+              <p>官方内容以原创纪实影像与人物访谈为主，涵盖城市探索、在地文化、日常记录、创作幕后与实用教程等方向。所有作品均由品牌团队或签约创作者完成，并标注授权与素材来源说明。</p>
+            </details>
+            <details>
+              <summary>普通用户可以通过什么方式投稿？</summary>
+              <p>页面顶部的投稿入口长期开放。你可以提交选题设想、成片链接或拍摄手记，编辑团队会在十个工作日内给出反馈。若作品进入专题企划，我们会进一步沟通授权与发布安排。</p>
+            </details>
+            <details>
+              <summary>参与创作比赛需要满足哪些条件？</summary>
+              <p>比赛面向所有注册创作者开放，作品需为原创且完成必要的肖像与场地授权。每期主题与时长要求不同，具体规则会在官方发布页面注明，报名时请留意截止时间。</p>
+            </details>
+            <details>
+              <summary>作品可以下载或二次使用吗？</summary>
+              <p>站内作品默认可在线观看与收藏，下载与二次使用需获得品牌方书面授权。我们坚持正版与合规，也欢迎机构伙伴通过官方渠道沟通合作与授权事宜。</p>
+            </details>
+            <details>
+              <summary>如何成为签约创作者？</summary>
+              <p>建议先通过投稿入口提交两到三条完整作品，并附上创作说明。团队会综合题材方向、完成度与更新能力进行评估，通过后会邀请参与线上沟通与试拍企划。</p>
+            </details>
+            <details>
+              <summary>品牌是否接受企业定制拍摄？</summary>
+              <p>接受。我们为企业和机构提供纪实风格的品牌短片、人物访谈与活动记录服务，具体流程包括需求沟通、选题确认、拍摄执行与后期交付，可通过页面底部联系方式进一步咨询。</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 投稿 CTA -->
+  <section class="zj-section" id="zj-submit" aria-label="投稿与联系">
+    <div class="zj-wrap">
+      <div class="zj-cta">
+        <div>
+          <h2>把你的故事，交给张津渝</h2>
+          <p>无论是一条街、一个人，还是一段还没被讲清楚的日常，我们都愿意认真看完。官方投稿入口长期开放，期待与你一起丰富这个内容社区。</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="zj-btn zj-btn-accent" type="button" data-zj-submit>立即投稿报名</button>
+          <button class="zj-btn zj-btn-ghost" type="button" data-zj-share>分享官方网站</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="zj-footer">
+  <div class="zj-wrap">
+    <div class="zj-footer-grid">
+      <div>
+        <div class="zj-footer-brand">
+          <span class="zj-brand-mark" style="width:36px;height:36px;">
+            <svg viewBox="0 0 64 64" width="20" height="20" aria-hidden="true"><path d="M18 20h20a6 6 0 0 1 6 6v18H26a8 8 0 0 1-8-8z" fill="#f0b429"/><path d="M27 30l12 7-12 7z" fill="#131c21"/></svg>
+          </span>
+          <span class="zj-brand-name">张津渝</span>
+        </div>
+        <p>张津渝官方网站，原创纪实影像与人物访谈视频品牌。我们以专业影像记录真实生活，以持续运营的社区陪伴创作者成长，坚持正版、高清与品质承诺。</p>
+        <p style="color:#71838c;">合作咨询：studio@zhangjinyu.example<br>工作时间：周一至周五 10:00–18:00</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#zj-focus">焦点内容</a></li>
+          <li><a href="#zj-videos">影像作品</a></li>
+          <li><a href="#zj-topics">专题企划</a></li>
+          <li><a href="#zj-about">品牌解析</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区参与</h4>
+        <ul>
+          <li><a href="#zj-authors">创作者矩阵</a></li>
+          <li><a href="#zj-voices">榜单与口碑</a></li>
+          <li><a href="#zj-submit">投稿入口</a></li>
+          <li><a href="#zj-faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>企业信息</h4>
+        <ul>
+          <li>品牌定位：纪实影像内容平台</li>
+          <li>内容方向：城市 · 人物 · 日常</li>
+          <li>合作方向：定制拍摄 / 授权</li>
+          <li>持续运营中 · 官方发布</li>
+        </ul>
+      </div>
+    </div>
+    <div class="zj-footer-bottom">
+      <span>© 2026 张津渝官方网站 · 版权所有 · 保留一切权利</span>
+      <span>备案号：示例备 2026000000 号 · 内容均为品牌原创，未经授权请勿转载</span>
+    </div>
+  </div>
+</footer>
+
+<div class="zj-float">
+  <button type="button" id="zjTopBtn" class="zj-top" aria-label="回到顶部">↑</button>
+  <button type="button" data-zj-share aria-label="分享">↗</button>
+</div>
+
+<div class="zj-modal-mask" id="zjModalMask">
+  <div class="zj-modal" id="zjModal" role="dialog" aria-modal="true" aria-labelledby="zjModalTitle">
+    <h3 id="zjModalTitle">提示</h3>
+    <div id="zjModalBody"></div>
+    <div class="zj-actions" style="justify-content:flex-end;">
+      <button class="zj-btn zj-btn-ghost" type="button" id="zjModalClose">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="zj-toast" id="zjToast">已复制</div>
+
+<script>
+(function(){
+  "use strict";
+  var toastTimer = null;
+  function toast(msg){
+    var t = document.getElementById('zjToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  }
+  function openModal(title, html){
+    document.getElementById('zjModalTitle').textContent = title;
+    document.getElementById('zjModalBody').innerHTML = html;
+    document.getElementById('zjModalMask').classList.add('show');
+  }
+  function closeModal(){
+    document.getElementById('zjModalMask').classList.remove('show');
+  }
+  document.getElementById('zjModalClose').addEventListener('click', closeModal);
+  document.getElementById('zjModalMask').addEventListener('click', function(e){
+    if(e.target === this){ closeModal(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeModal(); }
+  });
+
+  /* 移动端导航 */
+  var nav = document.getElementById('zjNav');
+  var tools = document.getElementById('zjTools');
+  var menuBtn = document.getElementById('zjMenuToggle');
+  menuBtn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    tools.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('open');
+      tools.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* 搜索提示 */
+  var input = document.getElementById('zjSearchInput');
+  var hint = document.getElementById('zjSearchHint');
+  var searchBtn = document.getElementById('zjSearchBtn');
+  var indexed = [
+    '一条街的十二时辰', '凌晨四点的早点摊', '人物访谈的三个提问技巧',
+    '老手艺的最后一批徒弟', '沿河而居', '城市微光专题', '城市探索', '人物访谈'
+  ];
+  function doSearch(){
+    var q = input.value.trim();
+    if(!q){
+      hint.innerHTML = '试试输入 <strong>城市</strong>、<strong>访谈</strong> 或 <strong>手记</strong>';
+      hint.classList.add('show');
+      return;
+    }
+    var hit = indexed.filter(function(item){ return item.indexOf(q) !== -1; });
+    if(hit.length){
+      hint.innerHTML = '找到 ' + hit.length + ' 条相关结果：<strong>' + hit.join(' · ') + '</strong>';
+    }else{
+      hint.innerHTML = '暂无完全匹配「<strong>' + q.replace(/[<>&]/g,'') + '</strong>」的内容，可尝试“城市”“访谈”“手记”等关键词。';
+    }
+    hint.classList.add('show');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ doSearch(); }
+  });
+  input.addEventListener('input', function(){
+    if(input.value.trim() === ''){ hint.classList.remove('show'); }
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.zj-search')){ hint.classList.remove('show'); }
+  });
+
+  /* 点赞 +1 */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-zj-like]');
+    if(btn){
+      var el = document.getElementById(btn.getAttribute('data-zj-like'));
+      if(!el) return;
+      var n = parseInt(el.textContent.replace(/,/g,''),10) || 0;
+      var liked = btn.classList.toggle('active-like');
+      el.textContent = (liked ? n + 1 : Math.max(0, n - 1)).toLocaleString('en-US');
+      toast(liked ? '已点赞，感谢支持' : '已取消点赞');
+      return;
+    }
+    var cntBtn = e.target.closest('[data-zj-count]');
+    if(cntBtn){
+      var span = cntBtn.querySelector('.zj-cnt');
+      var m = parseInt(span.textContent.replace(/,/g,''),10) || 0;
+      var on = cntBtn.classList.toggle('active-like');
+      span.textContent = (on ? m + 1 : Math.max(0, m - 1)).toLocaleString('en-US');
+      toast(on ? '已点赞，感谢支持' : '已取消点赞');
+    }
+  });
+
+  /* 收藏切换 */
+  document.addEventListener('click', function(e){
+    var fav = e.target.closest('[data-zj-fav]');
+    if(fav){
+      var active = fav.classList.toggle('active-fav');
+      var ico = fav.querySelector('.ico');
+      if(ico) ico.textContent = active ? '★' : '☆';
+      toast(active ? '已加入收藏夹' : '已取消收藏');
+    }
+  });
+
+  /* 分享 */
+  function shareAction(){
+    var text = '张津渝官方网站 - 原创纪实影像与人物访谈视频品牌';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        toast('品牌信息已复制，可粘贴分享给朋友');
+      }).catch(function(){
+        openModal('分享官方网站', '<p>推荐分享渠道：微信、微博、QQ。你可以搜索“张津渝官方网站”，把喜欢的作品转发给朋友。</p>');
+      });
+    }else{
+      openModal('分享官方网站', '<p>推荐分享渠道：微信、微博、QQ。你可以搜索“张津渝官方网站”，把喜欢的作品转发给朋友。</p>');
+    }
+  }
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-zj-share]')){ shareAction(); }
+  });
+
+  /* 评论弹窗 */
+  document.addEventListener('click', function(e){
+    var c = e.target.closest('[data-zj-comment]');
+    if(c){
+      openModal('评论区',
+        '<p>《一条街的十二时辰》目前共有 1,286 条评论，以下为编辑精选：</p>' +
+        '<p>“第三集结尾那个长镜头，等了很久也没有切，反而更真实。”</p>' +
+        '<p>“想知道拍摄团队是怎么说服摊主出镜的，很有参考价值。”</p>' +
+        '<p>“已收藏，准备周末带相机去那条街走一遍。”</p>');
+    }
+  });
+
+  /* 作者信息弹窗 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('[data-zj-author]');
+    if(a){
+      var parts = a.getAttribute('data-zj-author').split('|');
+      openModal(parts[0] + ' · 作者档案',
+        '<p><strong>领域：</strong>' + parts[1] + '</p><p><strong>简介：</strong>' + parts[2] + '</p>' +
+        '<p><strong>合作方式：</strong>可通过页脚邮箱联系品牌团队，注明“作者合作”。</p>');
+    }
+  });
+
+  /* 投稿弹窗 */
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-zj-submit]')){
+      openModal('投稿与报名',
+        '<p>请准备以下信息：作品名称、时长、创作说明（不少于 200 字）、素材授权状态。</p>' +
+        '<p>提交方式：将作品链接与说明发送至 studio@zhangjinyu.example，标题注明“投稿 + 作品名”。</p>' +
+        '<p>编辑团队将在十个工作日内回复，符合专题企划的作品会进入进一步沟通流程。</p>');
+    }
+  });
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('zjTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 480){ topBtn.classList.add('show'); }
+    else{ topBtn.classList.remove('show'); }
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+  </html>
